@@ -7,24 +7,37 @@ var numeri = [];
 for (var i = 0; i < 5; i++) {
 	numeri.push(Math.floor(Math.random() * 50 + 1));
 }
-console.log('Numeri da indovinare: ' + numeri);
 
 // li visualizzo
 alert("Ricordati questi numeri: " + numeri);
 
 //parte il timer e indico la funzione da fare a tempo scaduto
-setTimeout(contaRisposteGiuste,3000);
-
+setTimeout(contaRisposteGiuste, 30000);
 
 function contaRisposteGiuste() {
 	console.log("Tempo scaduto!");
-	var input, numeriInseriti = [], numeriEsatti = [];
+	var input, numeriEsatti = [];
 
+	// faccio inserire all'utente i numeri che si ricorda
 	for (var i = 0; i < 5; i++) {
-		input = prompt("Inserisci un numero che ti ricordi:");
+		input = parseInt(prompt("Inserisci un numero che ti ricordi:"));
 		// controllo che sia presente nei numeri da ricordare
-		numeriInseriti.push(input);
+		for (var j = 0; j < 5; j++) {
+			if (input === numeri[j]) {
+				numeriEsatti.push(input);
+			}
+		}
 	}
-	console.log('Numeri ricordati: ' + numeriInseriti);
+
+	// stampo il risultato
+	if (numeriEsatti.length === 0) {
+		alert('Memoria di ferro! Non ne hai azzeccato manco uno :D');
+	} else if (numeriEsatti.length === 1) {
+		alert('Ti sei ricordato/a 1 numero su 5! ' + numeriEsatti);
+	} else if (numeriEsatti.length === 5) {
+		alert('SIGNORI! 5 su 5! ' + numeriEsatti);
+	} else {
+		alert('Ti sei ricordato/a ' + numeriEsatti.length + ' numeri su 5! ' + numeriEsatti);
+	}
 }
 
