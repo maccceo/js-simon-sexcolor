@@ -16,13 +16,24 @@ while (inputCorretto === false) {
 	}
 }
 
-// converto il sesso dell'utente in colore
+// # # VERSIONE 1 MODIFICANDO DIRETTAMENTE LO STILE DELL'ELEMENTO H1 # #
+// // converto il sesso dell'utente in colore
+// if (sesso === "m") {
+// 	sesso = "#3078ff";	// blu
+// } else if  (sesso === "f") {
+// 	sesso = "#f87afa";	// rosa
+// }
+
+// // stampo nell'HTML il nome col colore del sesso
+// h1Element.innerHTML = "Ciao " + nome + "!";
+// h1Element.style.color = sesso;
+
+
+// # # VERSIONE 2 TOGGLANDO LA CLASSE SESSO CON RELATIVO COLORE # #
 if (sesso === "m") {
-	sesso = "#3078ff";	// blu
+	h1Element.className = h1Element.classList + " maschio";
 } else if  (sesso === "f") {
-	sesso = "#f87afa";	// rosa
+	h1Element.className = h1Element.classList + " femmina";
 }
 
-// stampo nell'HTML il nome col colore del sesso
 h1Element.innerHTML = "Ciao " + nome + "!";
-h1Element.style.color = sesso;
